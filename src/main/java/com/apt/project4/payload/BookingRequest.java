@@ -12,7 +12,16 @@ import java.util.Date;
  * @author Duy Hoang
  */
 public class BookingRequest {
+    
+    private int userId;
 
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
     public Date getDate1() {
         return date1;
     }

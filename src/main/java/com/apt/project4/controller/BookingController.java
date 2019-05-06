@@ -45,6 +45,22 @@ public class BookingController {
         DataListResponse response = new DataListResponse(bookingService.findAllBookingystt(bookingRequest.getDate1(),bookingRequest.getDate2()));
         return ok(response);
     }
+    
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public ResponseEntity<Object> getAllBooking() {
+        DataListResponse response = new DataListResponse(bookingService.findAllBooking());
+        return ok(response);
+    }
+    
+    @RequestMapping(value = "{id}", method = RequestMethod.POST)
+    public ResponseEntity<Object> getBookingByUserId(@Valid @RequestBody BookingRequest bookingRequest) {
+        DataListResponse response = new DataListResponse(bookingService.findBookingByUserId(bookingRequest.getUserId()));
+        return ok(response);
+    }
+    
+    
+    
+    
     @RequestMapping(value = "", method = RequestMethod.POST)
     
     public ResponseEntity addNewBooking(@Valid @RequestBody BookingAddNewRequest requestobj){

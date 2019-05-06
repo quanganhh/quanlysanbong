@@ -43,6 +43,15 @@ public class BookingService {
     public List<Booking> findAllBookingystt(Date date1,Date date2) {
         return bookingRepository.findByBookingDate(date1, date2);
     }
+    
+    public List<Booking> findBookingByUserId(int uid) {
+        return bookingRepository.findByBookingUserId(uid);
+    }
+    
+    public List<Booking> findAllBooking() {
+        return bookingRepository.findAllBooking();
+    }
+    
     public Booking addNewBooking(BookingAddNewRequest bkrequest){
         Booking booking = new Booking();
         booking.setBookingDate(bkrequest.getBooking_date());

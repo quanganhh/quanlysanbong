@@ -145,13 +145,14 @@ function dat_lich(table){
         var sf_id = $('.selectpicker').val();
         var date_dat_lich =  $('#date_dat_lich').val();
         var lst_timedur_id = [];
+        var userId = localStorage.getItem('userId');
         //var sl_sf = $('.list-time-duration tr td input[type="checkbox"]:checked');
         $('.list-time-duration tr td input[type="checkbox"]:checked').each(function(){
             lst_timedur_id.push($(this).val());
         });
          var data = JSON.stringify({
         "sf_id": sf_id,
-        "user_id": "1",
+        "user_id": userId,
         "booking_date": date_dat_lich,
         "sf_duration_ids": lst_timedur_id
         });
