@@ -1,17 +1,26 @@
 function loadHTML() {
+    var role_id = localStorage.getItem('roleId');
     var path = window.location.search;
     var file = path.split('=');
     if (typeof file[1] != 'undefined') {
         var view = file[1].replace('-', '/');
-        $('#body-data').load(view + '.html');
+        var array_url = ['member/list', 'pitch/list', 'time_duration/list','report/view'];
+        if(role_id != 1){
+            if($.inArray(view, array_url) != -1){
+                $('#body-data').load('dashboard.html');
+            }else{
+                $('#body-data').load(view + '.html');
+            }
+        }else{
+            $('#body-data').load(view + '.html');
+        }
     } else {
         $('#body-data').load('dashboard.html');
     }
-
-    var roleId = localStorage.getItem('roleId');
-    if(roleId == 2){
-        $('#account, #pitch, #time').remove();
-}
+    
+    if(role_id != 1){
+        $('#member, #pitch, #time, #report').remove();
+    }
 }
 
 function path(str){

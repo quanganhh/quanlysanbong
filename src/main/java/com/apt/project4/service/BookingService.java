@@ -40,6 +40,9 @@ public class BookingService {
     @Autowired
     private ObjectMapper objectMapper;
     
+    public List<Booking> findAllBookingystt(Date date1,Date date2) {
+        return bookingRepository.findByBookingDate(date1, date2);
+    }
     public Booking addNewBooking(BookingAddNewRequest bkrequest){
         Booking booking = new Booking();
         booking.setBookingDate(bkrequest.getBooking_date());

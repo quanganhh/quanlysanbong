@@ -14,7 +14,15 @@ import java.util.Date;
 public class BookingDetailRequest {
     private Integer sf_id;
     private Date bookingdate;
+    private int booking_id;
 
+    public int getBooking_id() {
+        return booking_id;
+    }
+
+    public void setBooking_id(int booking_id) {
+        this.booking_id = booking_id;
+    }
     public Integer getSf_id() {
         return sf_id;
     }

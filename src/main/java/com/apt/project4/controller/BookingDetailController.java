@@ -32,4 +32,10 @@ public class BookingDetailController {
         DataListResponse response = new DataListResponse(bookingDetailService.findAllbookingDetailbystt(bookingDetailRequest.getBookingdate(),bookingDetailRequest.getSf_id()));
         return ok(response);
     }
+    
+    @RequestMapping(value = "report", method = RequestMethod.POST)
+    public ResponseEntity<Object> getbookingDetailForReport(@Valid @RequestBody BookingDetailRequest bookingDetailRequest) {
+        DataListResponse response = new DataListResponse(bookingDetailService.findAllbookingDetailByBookingId(bookingDetailRequest.getBooking_id()));
+        return ok(response);
+    }
 }

@@ -10,6 +10,7 @@ import com.apt.project4.model.Booking;
 import com.apt.project4.model.BookingDetail;
 import com.apt.project4.model.SfDuration;
 import com.apt.project4.payload.BookingAddNewRequest;
+import com.apt.project4.payload.BookingRequest;
 import com.apt.project4.payload.DataListResponse;
 import com.apt.project4.payload.SingleDataResponse;
 import com.apt.project4.service.BookingDetailService;
@@ -39,7 +40,11 @@ public class BookingController {
     private BookingDetailService bd_sv;
     @Autowired
     private TimeDurationService timedur_sv;
-    
+    @RequestMapping(value = "/check", method = RequestMethod.POST)
+    public ResponseEntity<Object> getBookingForCheck(@Valid @RequestBody BookingRequest bookingRequest) {
+        DataListResponse response = new DataListResponse(bookingService.findAllBookingystt(bookingRequest.getDate1(),bookingRequest.getDate2()));
+        return ok(response);
+    }
     @RequestMapping(value = "", method = RequestMethod.POST)
     
     public ResponseEntity addNewBooking(@Valid @RequestBody BookingAddNewRequest requestobj){

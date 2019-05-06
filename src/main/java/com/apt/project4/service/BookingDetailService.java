@@ -47,6 +47,10 @@ public class BookingDetailService {
         return bookingDetailRepository.findByNgayvaSan(ngay, id_san);
     }
     
+    public List<BookingDetail> findAllbookingDetailByBookingId(Integer id_booking) {
+        return bookingDetailRepository.findByBookingId(id_booking);
+    }
+    
     public BookingDetail addNewBookingDetail(BookingAddNewRequest requestobj, Integer sf_duration_id){
         BookingDetail bd = new BookingDetail();
         // time duration list
