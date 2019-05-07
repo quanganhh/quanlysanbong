@@ -88,7 +88,7 @@ function getDetail(id) {
                         if(item[5] == 1){
                             tt = 'Đã duyệt';
                         }
-                        html += '<tr><td>' + item[0] + '</td><td>' + item[1]+'</td><td>' + item[3]+'</td><td>' + item[2] + '</td><td>' + item[4] + '</td><td>' + tt + '</td></tr>';
+                        html += '<tr><td>' + item[0] + '</td><td>' + item[2]+'</td><td>' + item[1]+'</td><td>' + item[3] + '</td><td>' + item[4] + '</td><td>' + tt + '</td></tr>';
                     });
                     table.append(html);
                     $('.listBookingDetail').dataTable();
